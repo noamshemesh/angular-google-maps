@@ -1,3 +1,7 @@
+branches:
+  only:
+    - master
+    - gh-pages-new
 language: node_js
 node_js: 0.10
 after_install: bower install
