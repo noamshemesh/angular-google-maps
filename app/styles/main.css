@@ -7,8 +7,12 @@ body {
 
 .hero-unit h1 {
 	margin-bottom: 10px;
-	letter-spacing: -2px;
+	letter-spacing: -3px;
 	text-shadow: -1px 0 0 #fff;
+}
+
+.hero-unit h1 + p {
+	margin-bottom: 10px;
 }
 
 /* fix images in map */
@@ -16,10 +20,20 @@ body {
 	display: block;
 	height: 400px;
 	width: 100%;
-	border: 1px #aaa solid;
-	box-sizing: border-box;
 }
 
 .angular-google-map img {
   max-width: inherit !important;
+}
+
+#menu {
+	width: 170px;
+}
+
+#menu li > a {
+	font-weight: 300;
+}
+
+#menu li.active > a {
+	font-weight: normal;
 }

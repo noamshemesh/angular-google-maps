@@ -41,7 +41,28 @@
       </div>
     </div>
     
-    <div class="container" ng-view></div>
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+          <div class="affix" id="menu">
+			      <ul class="nav nav-list">          
+			        <li ng-class="{'active': currentPath == '/'}"><a href="/#!/">Home</a></li>
+			        <li ng-class="{'active': currentPath == '/getting-started'}"><a href="/#!/getting-started">Getting started</a></li>
+			        <li ng-class="{'active': currentPath == '/options'}"><a href="/#!/options">Options</a></li>
+			        <li ng-class="{'active': currentPath == '/demo'}"><a href="/#!/demo">Demo</a></li>
+			        <li class="nav-header">Contribute</li>
+			        <li><a href="https://github.com/nlaplante/angular-google-maps/issues?page=1&state=open" rel="external">See open issues</a></li>
+			        <li><a href="https://github.com/nlaplante/angular-google-maps/issues/new">Report an issue</a></li>
+			        <li><a href="https://github.com/nlaplante/angular-google-maps/fork">Fork repository</a></li>
+			        <li class="nav-header">Connect</li>        
+			        <li><a href="#">Google+</a></li>
+			        <li><a href="#">Github</a></li>
+			      </ul>
+			    </div>
+        </div>
+        <div class="span10" ng-view></div>
+      </div>
+    </div>
 
     <script src="components/jquery/jquery.js"></script>
     <script src="components/bootstrap/js/bootstrap.js"></script>
@@ -54,6 +75,9 @@
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/demo.js"></script>
+    <script src="scripts/controllers/gettingStarted.js"></script>
+    <script src="scripts/controllers/options.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

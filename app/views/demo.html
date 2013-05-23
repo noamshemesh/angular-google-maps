@@ -1,0 +1,85 @@
+<div class="page-title">
+  <h1>Live demo</h1>
+</div>
+
+<p>This is the live demo of angular-google-maps. As long as you don't interact directly with
+the map, it will keep changing its center randomly each 5 seconds. Also, {{ randomMarkersCount }} 
+markers have been generated randomly to put on the map.</p>
+
+<div  google-map center="map.center"
+  latitude="map.latitude"
+  longitude="map.longitude" 
+  zoom="map.zoom" 
+  markers="map.markers" 
+  options='{"panControl": false, "zoomControl": false, "scaleControl": false }' 
+  events="map.events" 
+  draggable="true" 
+  mark-click="true"></div>
+  
+<form>
+  <div class="row-fluid">
+    <div class="span4">  
+      <fieldset>
+        <legend>Coordinates</legend>
+        
+        <div class="control-group">
+          <label class="control-label">Latitude</label>
+          <div class="controls">
+            <input type="number" required ng-model="map.center.latitude">
+          </div>
+          </label>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label">Longitude</label>
+          <div class="controls">
+            <input type="number" required ng-model="map.center.longitude">
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <div class="controls">
+            <button class="btn btn-success">Find me</button>
+          </div>
+        </div>
+      </fieldset>    
+    </div>
+    <div class="span4">
+      <fieldset>
+        <legend>Visual</legend>
+        
+        <div class="control-group">
+          <label class="control-label">Zoom</label>
+          <div class="controls">
+            <div class="btn-group">
+              <button class="btn" ng-click="map.zoomOut()" ng-disabled="map.zoom == 1"><i class="icon-minus"></i></button>
+              <button class="btn" ng-click="map.zoomIn()"><i class="icon-plus"></i></button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="span4">
+      <fieldset>
+        <legend>Markers</legend>
+        
+        <div class="control-group">
+	        <table class="table table-bordered table-striped">
+	          <thead>
+	            <tr>
+	              <th>Latitude</th>
+	              <th>Longitude</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr ng-repeat="marker in map.markers">
+	              <td>{{ marker.latitude }}</td>
+	              <td>{{ marker.longitude }}</td>
+	            </tr>
+	          </tbody>
+	        </table>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</form>
