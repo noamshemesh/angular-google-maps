@@ -1,7 +1,10 @@
 'use strict';
 
-angular.module('angularGoogleMapsApp', [])
+angular.module('angularGoogleMapsApp', ['ui.bootstrap', 'google-maps'])
   .config(function ($routeProvider) {
+    
+    google.maps.visualRefresh = true;
+    
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

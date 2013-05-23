@@ -1,1 +1,25 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+
+body {
+	font-family: "Open Sans", sans-serif;
+	padding-top: 60px;
+}
+
+.hero-unit h1 {
+	margin-bottom: 10px;
+	letter-spacing: -2px;
+	text-shadow: -1px 0 0 #fff;
+}
+
+/* fix images in map */
+.angular-google-map {
+	display: block;
+	height: 400px;
+	width: 100%;
+	border: 1px #aaa solid;
+	box-sizing: border-box;
+}
+
+.angular-google-map img {
+  max-width: inherit !important;
+}
