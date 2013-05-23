@@ -325,7 +325,7 @@
     controller.$inject = ['$scope', '$element'];
     
     return {
-      restrict: "EC",
+      restrict: "ECA",
       priority: 100,
       transclude: true,
       template: "<div class='angular-google-map' ng-transclude></div>",
@@ -337,7 +337,8 @@
         longitude: "=longitude", // required
         zoom: "=zoom", // required
         refresh: "&refresh", // optional
-        windows: "=windows" // optional"
+        windows: "=windows", // optional
+        events: "=events"
       },
       controller: controller,      
       link: function (scope, element, attrs, ctrl) {
@@ -413,6 +414,16 @@
             });
           });
         });
+        
+        if (angular.isDefined(scope.events)) {
+          for (var eventName in scope.events) {
+            if (scope.events.hasOwnProperty(eventName) && angular.isFunction(scope.events[eventName])) {
+              _m.on(eventName, function () {
+                scope.events[eventName].apply(scope, [_m, eventName, arguments]);
+              });
+            }
+          }
+        }
         
         if (attrs.markClick == "true") {
           (function () {
