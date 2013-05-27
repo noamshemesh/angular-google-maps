@@ -6,7 +6,7 @@
 the map, it will keep changing its center randomly each 5 seconds. Also, {{ randomMarkersCount }} 
 markers have been generated randomly to put on the map.</p>
 
-<div  google-map center="map.center"
+<google-map  center="map.center"
   latitude="map.latitude"
   longitude="map.longitude" 
   zoom="map.zoom" 
@@ -14,7 +14,11 @@ markers have been generated randomly to put on the map.</p>
   options='{"panControl": false, "zoomControl": false, "scaleControl": false }' 
   events="map.events" 
   draggable="true" 
-  mark-click="true"></div>
+  mark-click="true">
+  
+  <polyline waypoints="map.route" stroke-color="#000000" stroke-weight="5"></polyline>
+  
+</google-map>
   
 <form>
   <div class="row-fluid">
