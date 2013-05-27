@@ -16,7 +16,7 @@ describe('Controller: DemoCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should attach an object with map parameters to the scope', function () {
+    expect(angular.isDefined(scope.map)).toBe(true);
   });
 });

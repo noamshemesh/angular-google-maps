@@ -7,8 +7,12 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
+  'app/components/jquery/jquery.js',
   'app/components/angular/angular.js',
   'app/components/angular-mocks/angular-mocks.js',
+  'app/components/angular-google-maps/src/angular-google-maps.js',
+  'app/components/angular-bootstrap/ui-bootstrap-tpls.js',
+  'https://maps.googleapis.com/maps/api/js?sensor=false',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',
