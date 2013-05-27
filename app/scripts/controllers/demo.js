@@ -29,6 +29,20 @@ angular.module('angularGoogleMapsApp')
         
         return _m;
       }()),
+      route: [{
+          latitude: 45,
+          longitude: -73
+        }, {
+          latitude: 45.5,
+          longitude: -80
+        }, {
+          latitude: 47,
+          longitude: -91.4
+        }, {
+          latitude: 38,
+          longitude: -94.2
+        }
+      ],
       events: {
         drag: function () {
           if ($timeout.cancel(navigateTimeout)) {
