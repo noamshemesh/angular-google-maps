@@ -9,7 +9,9 @@
     "angular-google-maps": "latest",
     "angular-bootstrap": "latest",
     "bootstrap": "latest",
-    "bootstrap.css": "latest"
+    "bootstrap.css": "latest",
+    "underscore": "~1.5.1",
+    "angular-moment": "~0.1.4"
   },
   "devDependencies": {
     "angular-mocks": "latest",
