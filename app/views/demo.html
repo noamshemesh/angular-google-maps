@@ -8,15 +8,12 @@ markers have been generated randomly to put on the map.</p>
 
 <google-map  center="map.center"
   zoom="map.zoom" 
-  markers="map.markers" 
   options='{"panControl": false, "zoomControl": false, "scaleControl": false }' 
   events="map.events" 
   draggable="true" 
   mark-click="true">
   
-  <marker ng-repeat="marker in map.markers" coords="marker" icon="marker.icon">
-  	
-  </marker>
+  
   
 </google-map>
   
@@ -29,7 +26,7 @@ markers have been generated randomly to put on the map.</p>
         <div class="control-group">
           <label class="control-label">Latitude</label>
           <div class="controls">
-            <input type="number" required ng-model="map.center.latitude">
+            <input type="text" required ng-model="map.center.latitude">
           </div>
           </label>
         </div>
@@ -37,13 +34,13 @@ markers have been generated randomly to put on the map.</p>
         <div class="control-group">
           <label class="control-label">Longitude</label>
           <div class="controls">
-            <input type="number" required ng-model="map.center.longitude">
+            <input type="text" required ng-model="map.center.longitude">
           </div>
         </div>
         
         <div class="control-group">
           <div class="controls">
-            <button class="btn btn-success">Find me</button>
+            <button class="btn btn-success" ng-click="findMe()">Find me</button>
           </div>
         </div>
       </fieldset>    
@@ -55,9 +52,10 @@ markers have been generated randomly to put on the map.</p>
         <div class="control-group">
           <label class="control-label">Zoom</label>
           <div class="controls">
-            <div class="btn-group">
-              <button class="btn" ng-click="map.zoomOut()" ng-disabled="map.zoom == 1"><i class="icon-minus"></i></button>
-              <button class="btn" ng-click="map.zoomIn()"><i class="icon-plus"></i></button>
+            <div class="btn-group input-append">
+              <button class="btn" ng-click="map.zoomOut()" ng-disabled="map.zoom == 1"><i class="icon-zoom-out"></i></button>
+              <button class="btn" ng-click="map.zoomIn()"><i class="icon-zoom-in"></i></button>
+              <span class="add-on">{{ map.zoom }}</span>
             </div>
           </div>
         </div>
@@ -68,20 +66,11 @@ markers have been generated randomly to put on the map.</p>
         <legend>Markers</legend>
         
         <div class="control-group">
-	        <table class="table table-bordered table-striped">
-	          <thead>
-	            <tr>
-	              <th>Latitude</th>
-	              <th>Longitude</th>
-	            </tr>
-	          </thead>
-	          <tbody>
-	            <tr ng-repeat="marker in map.markers">
-	              <td>{{ marker.latitude }}</td>
-	              <td>{{ marker.longitude }}</td>
-	            </tr>
-	          </tbody>
-	        </table>
+        	<ul class="unstyled">
+        		<li ng-repeat="marker in map.markers">
+        			{{ marker.latitude }}, {{ marker.longitude }}
+        		</li>
+        	</ul>	        
         </div>
       </fieldset>
     </div>
