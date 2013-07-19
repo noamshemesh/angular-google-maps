@@ -14,8 +14,6 @@ angular.module('angularGoogleMapsApp')
         longitude: -73
       },
       zoom: 4,
-      latitude: null,   // for clicked marker
-      longitude: null,  // for clicked marker
       markers: (function () {
         var _m = [];
         
@@ -23,7 +21,8 @@ angular.module('angularGoogleMapsApp')
           _m.push({
             latitude: generateRandomCoord(),
             longitude: generateRandomCoord(),
-            animation: google.maps.Animation.DROP
+            animation: google.maps.Animation.DROP,
+            icon: null
           });
         }
         
