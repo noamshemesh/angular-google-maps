@@ -7,8 +7,6 @@ the map, it will keep changing its center randomly each 5 seconds. Also, {{ rand
 markers have been generated randomly to put on the map.</p>
 
 <google-map  center="map.center"
-  latitude="map.latitude"
-  longitude="map.longitude" 
   zoom="map.zoom" 
   markers="map.markers" 
   options='{"panControl": false, "zoomControl": false, "scaleControl": false }' 
@@ -16,7 +14,9 @@ markers have been generated randomly to put on the map.</p>
   draggable="true" 
   mark-click="true">
   
-  <polyline waypoints="map.route" stroke-color="#000000" stroke-weight="5"></polyline>
+  <marker ng-repeat="marker in map.markers" coords="marker" icon="marker.icon">
+  	
+  </marker>
   
 </google-map>
   
