@@ -20,9 +20,7 @@ angular.module('angularGoogleMapsApp')
         for (var i = 0; i < MARKER_COUNT; i++) {
           _m.push({
             latitude: generateRandomCoord(),
-            longitude: generateRandomCoord(),
-            animation: google.maps.Animation.DROP,
-            icon: null
+            longitude: generateRandomCoord()
           });
         }
         
@@ -43,11 +41,6 @@ angular.module('angularGoogleMapsApp')
         }
       ],
       events: {
-        drag: function () {
-          if ($timeout.cancel(navigateTimeout)) {
-            $log.info("Stopping automatic map randomization after used interacted with the map");
-          }
-        }
       },
       zoomIn: function () {        
         this.zoom++;
@@ -59,17 +52,15 @@ angular.module('angularGoogleMapsApp')
       }
     };
     
-    var navigateTimeout = $timeout(function randomizeCoordinates() {
-      $scope.map.center.latitude = generateRandomCoord();
-      $scope.map.center.longitude = generateRandomCoord();
-      
-      for (var i = 0; i < MARKER_COUNT; i++) {
-        var _m = $scope.map.markers[i];
-        
-        _m.latitude = generateRandomCoord();
-        _m.longitude = generateRandomCoord();
-      }
-      
-      navigateTimeout = $timeout(randomizeCoordinates, 5000);
-    }, 5000);
+    // Find me
+    $scope.findMe = function () {
+    	if (navigator.geolocation) {
+    		navigator.geolocation.getCurrentPosition(function (position) {
+    			$scope.$apply(function (s) {
+    				s.map.center.latitude = position.coords.latitude;
+        			s.map.center.longitude = position.coords.longitude;
+    			});
+    		});
+    	}
+    };
   });
