@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularGoogleMapsApp', ['ui.bootstrap', 'google-maps'])
+angular.module('angularGoogleMapsApp', ['ui.bootstrap', 'google-maps', 'angularMoment'])
   .value("MARKER_COUNT", 5)
   .config(function ($routeProvider, $locationProvider) {
     
