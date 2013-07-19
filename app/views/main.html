@@ -2,8 +2,8 @@
 <div class="hero-unit">
     <h1>Google Maps for Angular.js</h1>
 
-    <p>Simple to use <a rel="external" href="http://angularjs.org/">Angular.js</a> 
-    directive to work with Google Maps inside your applications.</p>
+    <p>Simple to use directives to work with Google Maps inside your <a rel="external" href="http://angularjs.org/">Angular.js</a> 
+    applications.</p>
     
     <a class="btn btn-large btn-primary" href="">Download</a>
     <a class="btn btn-large">View on Github</a>
@@ -15,24 +15,52 @@
 </div>
 
 <div class="row-fluid">
-  <div class="span6">
+  <div class="span7">
+  	
+  	
     <h2>Features</h2>
     <ul>
-      <li>Two-way binding of center, zoom & marker properties;</li>
-      <li>Support for polylines</li>
+      <li>Asynchronous loading of Google Maps Javascript API v3 with 
+      configurable API key and sensor flag;</li>
+      <li>Directives for maps, markers, info windows, polylines and more;</li>
+      <li>Services for traffic, directions and geocoding</li>
     </ul>
+    
+    <h2>Use it</h2>
+  	<p><pre>$ bower install angular-google-maps --save</pre> and read the
+  	<a href="#!/getting-started">Getting started</a> page.</p>
+  	
+    <h2>Developer friendly</h2>
+    <p><strong>angular-google-maps</strong> uses Grunt as its main build system and
+    Jasmine as its testing framework.
+    </p>
   </div>
-  <div class="span6">
-    <h2>Headlines</h2>
-    <dl>
-      <dt>Working on polyline integration</dt>
-      <dd>We're currently working to the integration of polylines. This will
-      introduce a new directive, <code>polyline</code>, which will be used
-      inside the <code>google-map</code> directive to draw a line between
-      a list of coordinates.</dd>
-      <dt>Looking for contributors</dt>
-      <dd>There are much things to do to improve this library. 
+  <div class="span5">
+  	<div class="well">
+	    <h2>Announcements</h2>
+	    <dl>
+	      <dt>Working on polyline integration</dt>
+	      <dd>We're currently working to the integration of polylines. This will
+	      introduce a new directive, <code>polyline</code>, which will be used
+	      inside the <code>google-map</code> directive to draw a line between
+	      a list of coordinates.</dd>
+	      <dt>Looking for contributors</dt>
+	      <dd>There are much things to do to improve this library. 
       Contributors are welcome to join this project!</dd>
     </dl>
+    </div>
+    <div class="well github">
+	    <h2>Latest commit <small><span am-time-ago="latestCommit.commit.author.date"></span></small></h2>
+	    <blockquote><a ng-href="{{ latestCommit.html_url }}">{{ latestCommit.commit.message }}</a>
+	    <small><a ng-href="http://github.com/{{ latestCommit.author.login }}">{{ latestCommit.author.login }}</a></small></blockquote>
+	    
+	    <h2>Credits</h2>
+	    <ul class="inline clearfix">
+	    	<li ng-repeat="c in contributed()">
+	    		<a href="http://github.com/{{ c.login }}" ng-class="{'collaborator' : isCollaborator(c.login)}">{{ c.login }}</a> 
+	    		<span ng-hide="isCollaborator(c.login)"><span class="label">{{ c.contributions }}</span></span>
+	    	</li>
+	    </ul>
+    </div>
   </div>
 </div>
