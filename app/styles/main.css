@@ -7,7 +7,7 @@ body {
 
 .angular-google-map-container {
 	display: block;
-	height: 400px;
+	height: 600px;
 	
 }
 
@@ -33,6 +33,14 @@ dd {
 .github {
 	background: #f5f5f5 url(../images/GitHub-Mark-32px.png) no-repeat 50% 5%;
 	padding-top: 40px;
+}
+
+.card {
+	box-shadow: 1px 1px 3px #aaa; 
+}
+
+legend {
+	margin-bottom: 0;
 }
 
 /* fix images in map */

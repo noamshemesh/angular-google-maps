@@ -52,13 +52,34 @@ angular.module('angularGoogleMapsApp')
       }
     };
     
+    $scope.geolocationAvailable = navigator.geolocation;
+    
+    // the marker coords for the user's current location. set when clicking find me
+    var here = null;
+    
     // Find me
     $scope.findMe = function () {
     	if (navigator.geolocation) {
     		navigator.geolocation.getCurrentPosition(function (position) {
     			$scope.$apply(function (s) {
+    				
+    				// set map center
     				s.map.center.latitude = position.coords.latitude;
         			s.map.center.longitude = position.coords.longitude;
+        			
+        			// add marker
+        			if (!here) {
+        				here = {
+                				latitude: position.coords.latitude,
+                				longitude: position.coords.longitude
+                			};
+        				
+        				s.map.markers.push(here);
+        			}
+        			else {
+        				here.latitude = position.coords.latitude;
+        				here.longitude = position.coords.longitude;
+        			}
     			});
     		});
     	}
