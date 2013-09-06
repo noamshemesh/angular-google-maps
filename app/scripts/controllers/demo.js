@@ -2,6 +2,7 @@
 
 angular.module('angularGoogleMapsApp')
   .controller('DemoCtrl', function ($scope, $timeout, $log, MARKER_COUNT) {
+	  
     function generateRandomCoord () {
       return Math.round(Math.floor(Math.random() * 90) - 45);
     }
@@ -14,13 +15,14 @@ angular.module('angularGoogleMapsApp')
         longitude: -73
       },
       zoom: 4,
+      showTraffic: true,
       markers: (function () {
         var _m = [];
         
         for (var i = 0; i < MARKER_COUNT; i++) {
           _m.push({
-            latitude: generateRandomCoord(),
-            longitude: generateRandomCoord()
+        	  latitude: generateRandomCoord(),
+              longitude: generateRandomCoord()
           });
         }
         
