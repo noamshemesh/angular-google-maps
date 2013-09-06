@@ -16,15 +16,13 @@ of the library on this page.</p>
 		  draggable="true" 
 		  mark-click="true">
 		  
-		  <!-- all markers of the map -->
-		  <marker ng-repeat="m in map.markers" coords="m">
-		  
-		 	<!-- info window which shows when the marker is clicked -->
-		  	<window isiconvisibleonclick="false">This is position {{ m.latitude }}, {{ m.longitude }}</window>
-		  </marker>
+		  <!-- randomly generated markers -->
+		  <markers models="map.markers" coords="'self'" />
 		   
 		  <!-- marker list can also be used as a polyline path -->
 		  <polyline path="map.markers"></polyline>
+		  
+		  <trafficlayer show="map.showTraffic" />
 		</google-map>
 	</div>
 	<div class="span4">
