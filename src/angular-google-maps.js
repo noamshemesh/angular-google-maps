@@ -191,7 +191,7 @@
         });
       };
 
-      this.addMarker = function (lat, lng, icon, infoWindowContent, label, url, thumbnail) {
+      this.addMarker = function (lat, lng, icon, infoWindowContent, visible, label, url, thumbnail) {
 
         if (that.findMarker(lat, lng) != null) {
           return;
@@ -203,6 +203,9 @@
           icon: icon
         });
 
+        if (typeof visible != 'undefined' && visible != null) {
+          marker.setVisible(!!visible);
+        }
         if (label) {
 
         }
@@ -298,7 +301,7 @@
               index = s.findMarkerIndex(lat, lng);
 
           // Remove from local arrays
-          this._markers.splice(index, 1);
+          that._markers.splice(index, 1);
           s.markers.splice(index, 1);
 
           // Remove from map
@@ -486,7 +489,7 @@
 
             angular.forEach(newValue, function (v, i) {
               if (!_m.hasMarker(v.latitude, v.longitude)) {
-                _m.addMarker(v.latitude, v.longitude, v.icon, v.infoWindow);
+                _m.addMarker(v.latitude, v.longitude, v.icon, v.infoWindow, v.visible);
               }
             });
 
